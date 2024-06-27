@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Input.GetKeyDown(KeyCode.E) && TriggerZone.playerDetection)
+        {
+            Debug.Log("Диалог");
+        }
     }
 }
