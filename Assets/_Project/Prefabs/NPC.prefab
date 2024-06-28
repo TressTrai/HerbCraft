@@ -277,6 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1debeb284d378df4ebac009a09d3c8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueFild: {fileID: 0}
+  objectToDisappear: {fileID: 5515941923439635939}
 --- !u!1 &9147891254884586412
 GameObject:
   m_ObjectHideFlags: 0
