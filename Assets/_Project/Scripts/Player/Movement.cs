@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     public float speed = 10;
     private Rigidbody2D rb;
 
+    public bool freeze = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,5 +20,22 @@ public class Movement : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         rb.velocity = new Vector2(speed * x,speed * y);
+    }
+
+    public bool GetFreeze()
+    {
+        return freeze;
+    }
+
+    public void Freeze()
+    {
+        speed = 0;
+        freeze = true;
+    }
+
+    public void UnFreeze()
+    {
+        speed = 10;
+        freeze = false;
     }
 }
