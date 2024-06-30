@@ -1,34 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Countdown : MonoBehaviour
+public class TimerCountdown
 {
-    private int duration = 60;
-    private int timeRemaining;
-    private bool isCountingDown = false;
-    private float timeLeft = 60f;
-
-    public Countdown(int newDuration)
+    private static float currCountdownValue;
+    public static IEnumerator StartCountdown(TimerCallback callback, float countdownValue = 10)
     {
-        duration = newDuration;
-        timeLeft = duration;
-    }
-
-    public void Begin()
-    {
-        if (!isCountingDown)
+        currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
         {
-            isCountingDown = true;
-            timeRemaining = duration;
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
         }
-    }
-
-    private void Update()
-    {
-        if (timeLeft > 0)
-        {
-            timeLeft -= Time.deltaTime;
-        }
+        callback();
     }
 }

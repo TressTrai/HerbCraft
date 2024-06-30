@@ -100,6 +100,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < maxItemsAmount; i++)
         {
             GameObject cellObject = Instantiate(inventoryCell, new Vector3(0, 0, 0), Quaternion.identity, transform);
+            print(cellObject.transform.GetChild(0).gameObject.GetComponent<Image>());
             cellsObjects[i] = cellObject.GetComponent<Image>();
         }
     }
@@ -188,10 +189,10 @@ public class Inventory : MonoBehaviour
         {
             if (cellId-1 == i)
             {
-                cellsObjects[i].gameObject.GetComponent<Image>().color = Color.magenta;
+                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = Color.magenta;
             }
             else
-                cellsObjects[i].gameObject.GetComponent<Image>().color = Color.white;
+                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(255, 220, 220, 255);
         }
     }
     public Item GetItemById(int id)
