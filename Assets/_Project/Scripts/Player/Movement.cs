@@ -9,15 +9,28 @@ public class Movement : MonoBehaviour
 
     public bool freeze = false;
 
+    private GameObject attackArea = default;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        attackArea = transform.GetChild(0).gameObject;
     }
 
     void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+
+        if(x== -1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        if (x == 1)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
 
         rb.velocity = new Vector2(speed * x,speed * y);
     }

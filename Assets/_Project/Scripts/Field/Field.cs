@@ -19,7 +19,6 @@ public class Field : MonoBehaviour
     {
         if (other == objColl)
         {
-            Debug.Log("объект в зоне");
             detection = true;
         }
     }
@@ -28,7 +27,6 @@ public class Field : MonoBehaviour
     {
         if (other == objColl)
         {
-            Debug.Log("объект не в зоне");
             detection = false;
         }
     }

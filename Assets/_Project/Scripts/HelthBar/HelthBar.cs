@@ -7,12 +7,13 @@ public class HelthBar : MonoBehaviour
 {
     Image healthBar;
     public float maxHealth = 100;
-    public float Hp;
-    private bool canDamage = true;
+    private float Hp;
+    private GameObject player;
 
     private void Start()
     {
         healthBar = GetComponent<Image>();
+        player = GameObject.FindGameObjectWithTag("PlayerBody");
         Hp = maxHealth;
     }
 
@@ -31,26 +32,18 @@ public class HelthBar : MonoBehaviour
         return Hp;
     }
 
-    public void SubHp(bool start, int damageAmount, float delay)
+    public void SubHp(int damageAmount)
     {
-        if (start)
+        ChangeHp(GetHp() - damageAmount);
+        if (Hp <= 0)
         {
-            if (canDamage)
-            {
-                StartCoroutine(DamageOverTime(damageAmount, delay));
-            }
-        }
-        else
-        {
-            StopCoroutine(DamageOverTime(damageAmount, delay));
+            Respawn();
         }
     }
 
-    private IEnumerator DamageOverTime(int damageAmount, float delay)
+    private void Respawn()
     {
-        canDamage = false;
-        ChangeHp(GetHp() - damageAmount);
-        yield return new WaitForSeconds(delay);
-        canDamage = true;
+        Hp = maxHealth;
+        player.transform.position = new Vector3(0.08f, 2.08f, 0);
     }
 }
