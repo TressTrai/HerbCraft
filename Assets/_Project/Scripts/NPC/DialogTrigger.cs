@@ -12,10 +12,13 @@ public class Dialog : MonoBehaviour
     public GameObject player;
     private Movement scriptMovement;
 
+    private TriggerZone zone;
+
     private void Start()
     {
         scriptDialogue = dialogueFild.GetComponent<Dialogue>();
         scriptMovement = player.GetComponent<Movement>();
+        zone = gameObject.GetComponent<TriggerZone>();
         dialogueFild.SetActive(false);
     }
 
@@ -26,7 +29,7 @@ public class Dialog : MonoBehaviour
             scriptDialogue.ScipText();
         }
 
-        if (Input.GetKeyUp(KeyCode.E) && TriggerZone.playerDetection && !scriptMovement.GetFreeze())
+        if (Input.GetKeyUp(KeyCode.E) && zone.GetDetection() && !scriptMovement.GetFreeze())
         {
             dialogueFild.SetActive(true);
             objectToDisappear.SetActive(false);
