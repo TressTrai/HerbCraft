@@ -13,7 +13,7 @@ public class InventoryCell : MonoBehaviour
 
     private void Awake()
     {
-        image = GetComponent<Image>();
+        image = transform.GetChild(0).GetComponent<Image>();
     }
 
     private void Start()
