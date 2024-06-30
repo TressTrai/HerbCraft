@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InteractiveObject : MonoBehaviour
 {
+    [SerializeField] private string itemName;
     [SerializeField] private Sprite itemSprite;
+    [SerializeField] private bool canUseInCraft;
     private Item item;
     private GameObject inventory;
     private PersonalTriggerZone triggerZone;
@@ -30,7 +32,7 @@ public class InteractiveObject : MonoBehaviour
         {
             return;
         }
-        item = new Item("ButtonE", itemSprite, true);
+        item = new Item(itemName, itemSprite, canUseInCraft);
         Inventory inv = inventory.GetComponent<Inventory>();
         inv.AddItem(item);
 

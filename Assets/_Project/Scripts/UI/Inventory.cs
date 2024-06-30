@@ -1,8 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class Craft
+{
+    private Item initialItem;
+    private Item craftedItem;
+    private string typeOfCraftTable;
+
+    public Item InitialItem
+    {
+        get { return initialItem; }
+    }
+    public Item CraftedItem
+    {
+        get { return craftedItem; }
+    }
+    public string TypeOfCraftTable
+    {
+        get { return typeOfCraftTable; }
+    }
+
+    public Craft(Item initialItem, Item craftedItem, string typeOfCraftTable)
+    {
+        this.initialItem = initialItem;
+        this.craftedItem = craftedItem;
+        this.typeOfCraftTable = typeOfCraftTable;
+    }
+}
 
 public class Item
 {
