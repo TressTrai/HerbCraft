@@ -16,15 +16,15 @@ public class Enemy : MonoBehaviour
     private Transform fieldPoint;
     private Field fieldScript;
 
-    public GameObject enemy;
-
     private float ranX = 1f;
     private float ranY = 1f;
-    private Vector2 ranVec;
+    private Vector2 ranVec ;
 
     private Transform player;
 
     private HelthBar helthBar;
+
+    private float timer = 0f;
 
     private bool chill = true;
     private bool angry = true;
@@ -65,7 +65,12 @@ public class Enemy : MonoBehaviour
 
         if (doDamage)
         {
-            //Надо что-то сделать с тем, что он толкает игрока
+            timer += Time.deltaTime;
+            if(timer >= 1)
+            {
+                helthBar.SubHp(damage);
+                timer = 0;
+            }
         }
         else if (chill)
         {
@@ -80,22 +85,37 @@ public class Enemy : MonoBehaviour
             GoBack();
         }
 
-
     }
 
     void Chill()
     {
-        PlusHp();
-        transform.position = Vector2.MoveTowards(transform.position, ranVec , speed * Time.deltaTime);
+        timer += Time.deltaTime;
+        if (timer >= 0.5)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, ranVec, speed * Time.deltaTime);
+        }
+        else
+        {
+            PlusHp();
+        }
+
         if (new Vector2(transform.position.x, transform.position.y) == ranVec)
         {
-            //Invoke("RandomeStep", 0.5f);  Прикольно трясётся вот и всё
+            timer = 0;
             RandomeStep();
         }
     }
 
     void Angry()
     {
+        if (transform.position.x >  player.position.x)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
         transform.position = Vector2.MoveTowards(transform.position, player.position,speed * Time.deltaTime);
     }
 
@@ -104,6 +124,15 @@ public class Enemy : MonoBehaviour
         if (transform.position != fieldPoint.position)
         {
             transform.position = Vector2.MoveTowards(transform.position, fieldPoint.position, speed * Time.deltaTime);
+            
+            if (transform.position.x > fieldPoint.position.x)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
         }
         else
         {
@@ -118,6 +147,14 @@ public class Enemy : MonoBehaviour
     {
         ranX = Random.Range(-step, step);
         ranY = Random.Range(-step, step);
+        if(ranX < 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (ranX > 0)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
         ranVec = new Vector2(transform.position.x + ranX, transform.position.y + ranY);
     }
 
@@ -126,7 +163,8 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("PlayerBody"))
         {
             doDamage = true;
-            helthBar.SubHp(true, damage, 1f);
+            helthBar.SubHp(damage);
+            timer = 0f;
         }
     }
 
@@ -135,7 +173,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("PlayerBody"))
         {
             doDamage = false;
-            helthBar.SubHp(false, damage, 1f);
+            timer = 0f;
         }
     }
 
@@ -170,5 +208,6 @@ public class Enemy : MonoBehaviour
         hp = maxhp;
         gameObject.SetActive(true);
         gameObject.transform.position = fieldPoint.position;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
