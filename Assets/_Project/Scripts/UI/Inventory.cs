@@ -149,8 +149,10 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < items.Length; i++)
         {
             items[i] = null;
-            cellsObjects[i] = null;
+            InventoryCell cell = (InventoryCell)cellsObjects[i].gameObject.GetComponent(typeof(InventoryCell));
+            cell.ChangeSprite();
         }
+        //UpdateCells();
     }
     public bool RemoveItem(int itemId)
     {
