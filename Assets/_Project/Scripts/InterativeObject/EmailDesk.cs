@@ -68,6 +68,8 @@ public class EmailDesk : MonoBehaviour
         titleField.text = randomTask.title;
         descriptionField.text = randomTask.description;
 
+        print("plr");
+        print(player.currentTask);
         player.currentTask = randomTask;
     }
 
