@@ -51,8 +51,6 @@ public class CraftTable : MonoBehaviour
             if (craftDone)
             {
                 GiveCraftedItemToPlayer();
-                craftDone = false;
-                doneIcon.SetActive(false);
             }
             else
             {
@@ -149,7 +147,12 @@ public class CraftTable : MonoBehaviour
         Item craftedItem = GetCraftedItem();
         if (craftedItem.Name == null) return;
 
-        inv.AddItem(craftedItem);
+        bool itemAdded = inv.AddItem(craftedItem);
+
+        if (!itemAdded) return;
+
+        craftDone = false;
+        doneIcon.SetActive(false);
     }
 
     private Item GetCraftedItem()

@@ -35,7 +35,7 @@ public class EmailDesk : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && triggerZone.PlayerDetection)
         {
-            if (orderAvailable)
+            if (orderAvailable && (player.currentTask == null || player.currentTask.title == ""))
             {
                 ShowTask();
                 SetOrderUnavailable();

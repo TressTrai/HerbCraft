@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    [SerializeField] GameObject taskField;
     private PersonalTriggerZone triggerZone;
     private Player player;
     private Inventory inv;
@@ -59,6 +60,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void ResetTask()
     {
+        print("reseting task");
         player.currentTask = null;
+        taskField.SetActive(false);
     }
 }

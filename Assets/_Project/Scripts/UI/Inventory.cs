@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -127,6 +128,7 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item newItem)
     {
+        print(newItem.Name);
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i] == null)
@@ -196,10 +198,21 @@ public class Inventory : MonoBehaviour
         {
             if (cellId-1 == i)
             {
-                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = Color.magenta;
+                if (cellsObjects[i].transform.GetChild(0).GetComponent<Image>().sprite == null)
+                {
+                    cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(0.95f, 0.5f, 0.5f, 255);
+                } 
+                else
+                {
+                    cellsObjects[i].GetComponent<Image>().color = new Color(0.95f, 0.5f, 0.5f, 255);
+                }
             }
             else
-                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(255, 220, 220, 255);
+            {
+                cellsObjects[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 255);
+                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1f, 1f, 1f, 255);
+            }
+                
         }
     }
     public Item GetItemById(int id)

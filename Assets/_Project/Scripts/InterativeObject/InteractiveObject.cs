@@ -34,7 +34,8 @@ public class InteractiveObject : MonoBehaviour
         
         item = new Item(itemName, itemSprite, canUseInCraft);
         Inventory inv = inventory.GetComponent<Inventory>();
-        inv.AddItem(item);
+        bool itemAdded = inv.AddItem(item);
+        if (!itemAdded) return;
  
         transform.parent.gameObject.SetActive(false); 
 

@@ -60,7 +60,7 @@ PrefabInstance:
       propertyPath: craftOutputsNames.Array.data[2]
       value: "\u041D\u0435\u043F\u0440\u043E\u0446\u0435\u0436\u0435\u043D\u043D\u044B\u0439
         \u043E\u0442\u0432\u0430\u0440 \u0438\u0437 \u043A\u043E\u0440\u043D\u0435\u0439
-        \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B "
+        \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B"
       objectReference: {fileID: 0}
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: craftIngridientsNames.Array.size
