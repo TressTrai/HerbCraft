@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -149,7 +148,8 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
-            RemoveItem(i);
+            items[i] = null;
+            cellsObjects[i] = null;
         }
     }
     public bool RemoveItem(int itemId)
