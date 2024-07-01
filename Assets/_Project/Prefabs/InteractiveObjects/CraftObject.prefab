@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CraftObject
       objectReference: {fileID: 0}
+    - target: {fileID: 4803286198322334565, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8628544823373054092, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

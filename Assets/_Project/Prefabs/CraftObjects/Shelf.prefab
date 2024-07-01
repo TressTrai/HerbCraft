@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 4056041529222314130, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: craftTableName
       value: Shelf
@@ -19,6 +23,35 @@ PrefabInstance:
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: playerCraftDuration
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[0]
+      value: "\u041C\u0430\u0437\u044C \u043E\u0442 \u0440\u0430\u043D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 785acf3511e107745b6b2ab2cf0d32f0, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[0]
+      value: "\u0418\u0437\u043C\u0435\u043B\u044C\u0447\u0435\u043D\u043D\u044B\u0435
+        \u043B\u0438\u0441\u0442\u044C\u044F \u043F\u043E\u0434\u043E\u0440\u043E\u0436\u043D\u0438\u043A\u0430"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: m_Color.b
