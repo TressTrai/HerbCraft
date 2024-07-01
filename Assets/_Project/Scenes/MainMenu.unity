@@ -283,11 +283,94 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7592969974473885144, guid: 4d9355f4c42329c47a1631a8a33d2f66, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1639461831}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d9355f4c42329c47a1631a8a33d2f66, type: 3}
+--- !u!1001 &1639461830
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3078398838149364684, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_Name
+      value: MusicPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030486939127230010, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030486939127230010, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_Volume
+      value: 0.365
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728734445026090471, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 3664650485856477026, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+    - {fileID: 6777639273562336527, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+    - {fileID: 5005847823797571209, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+--- !u!114 &1639461831 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2953995526650290377, guid: 14be76d36f362504096c03c8e999bb8f, type: 3}
+  m_PrefabInstance: {fileID: 1639461830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c6d0d39d0db9c45b51a3f893551097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7240541155607782446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,3 +435,4 @@ SceneRoots:
   - {fileID: 7240541155607782446}
   - {fileID: 1204069792}
   - {fileID: 502001834}
+  - {fileID: 1639461830}

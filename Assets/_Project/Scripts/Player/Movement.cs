@@ -8,10 +8,12 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
 
     public bool freeze = false;
+    public MusicPlayer audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource.PlayMusic();
     }
 
     void FixedUpdate()
