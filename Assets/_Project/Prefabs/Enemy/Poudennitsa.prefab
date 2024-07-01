@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2695882976184583203, guid: a248e1b7c0cbcaa44ba0befd1f15d90e, type: 3}
       propertyPath: angerDistance
-      value: 12
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2937941223178010508, guid: a248e1b7c0cbcaa44ba0befd1f15d90e, type: 3}
       propertyPath: m_Sprite
