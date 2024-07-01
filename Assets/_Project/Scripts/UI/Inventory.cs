@@ -143,6 +143,13 @@ public class Inventory : MonoBehaviour
     {
         return items;
     }
+    public void ClearInventory()
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            RemoveItem(i);
+        }
+    }
     public bool RemoveItem(int itemId)
     {
         bool itemDeleted = false;

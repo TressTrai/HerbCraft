@@ -67,6 +67,8 @@ public class CraftTable : MonoBehaviour
         chosenItem = inv.GetItemById(chosenItemId);
         if (chosenItem != null && chosenItem.CanUseInCraft && CanItemBeUsed(chosenItem.Name))
         {
+            print("chosen item");
+            print(chosenItem.Name);
             inv.RemoveItem(chosenItemId);
             StartCraft();
         }
@@ -122,7 +124,7 @@ public class CraftTable : MonoBehaviour
 
     private void StationCraft()
     {
-        print("station creaft");
+        print("station craft");
         void onCraftEnd()
         {
             progressBarScript.HideProgressBar();
