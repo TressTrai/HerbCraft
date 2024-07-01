@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +10,18 @@ public class HelthBar : MonoBehaviour
     public float maxHealth = 100;
     private float Hp;
     private GameObject player;
+    private Inventory inventory;
+    private Player money;
+    private TextMeshProUGUI textMesh;
 
     private void Start()
     {
         healthBar = GetComponent<Image>();
         player = GameObject.FindGameObjectWithTag("PlayerBody");
+        money = player.GetComponent<Player>();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>() ;
         Hp = maxHealth;
+        textMesh = GameObject.FindGameObjectWithTag("Money").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -45,5 +52,8 @@ public class HelthBar : MonoBehaviour
     {
         Hp = maxHealth;
         player.transform.position = new Vector3(0.08f, 2.08f, 0);
+        inventory.ClearInventory();
+        money.currentMoney = new Money(0);
+        textMesh.text = money.currentMoney.amount.ToString();
     }
 }
