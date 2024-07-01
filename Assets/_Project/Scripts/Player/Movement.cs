@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource.PlayMusic();
+        //audioSource.PlayMusic();
     }
 
     void FixedUpdate()
