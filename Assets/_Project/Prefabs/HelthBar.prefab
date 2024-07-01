@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1624698204653591270}
   m_Layer: 5
   m_Name: Image
-  m_TagString: HelthBar
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,10 +310,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 9042987710735300661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -452.29456, y: 247}
-  m_SizeDelta: {x: 237.3689, y: 67.3245}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 218.70001, y: -48}
+  m_SizeDelta: {x: 237.3689, y: 67.32449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5400706963660913509
 CanvasRenderer:
