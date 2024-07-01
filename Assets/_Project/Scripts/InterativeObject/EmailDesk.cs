@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
@@ -37,6 +39,7 @@ public class EmailDesk : MonoBehaviour
         {
             if (orderAvailable && (player.currentTask == null || player.currentTask.title == ""))
             {
+                print(1);
                 ShowTask();
                 SetOrderUnavailable();
                 StartCountdown();
@@ -95,8 +98,9 @@ public class EmailDesk : MonoBehaviour
 
     private string GetJSONString()
     {
-        string pathToJSON = "Assets/_Project/Texts/TasksAncient.json";
-        string content = System.IO.File.ReadAllText(pathToJSON);
+        string pathToJSON = "/Texts/TasksAncient.json";
+        string content = File.ReadAllText(Application.streamingAssetsPath + pathToJSON).ToString();
+
 
         return content;
     }
