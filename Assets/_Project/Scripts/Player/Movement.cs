@@ -9,12 +9,9 @@ public class Movement : MonoBehaviour
 
     public bool freeze = false;
 
-    private GameObject attackArea = default;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        attackArea = transform.GetChild(0).gameObject;
     }
 
     void FixedUpdate()
