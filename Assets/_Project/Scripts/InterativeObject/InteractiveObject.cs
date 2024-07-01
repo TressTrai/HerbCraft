@@ -11,7 +11,6 @@ public class InteractiveObject : MonoBehaviour
     private GameObject inventory;
     private PersonalTriggerZone triggerZone;
 
-
     private void Awake()
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory");
@@ -23,7 +22,6 @@ public class InteractiveObject : MonoBehaviour
         {
             AddItemToInventory();
         }
-
     }
 
     private void AddItemToInventory()
@@ -32,10 +30,19 @@ public class InteractiveObject : MonoBehaviour
         {
             return;
         }
+
+        
         item = new Item(itemName, itemSprite, canUseInCraft);
         Inventory inv = inventory.GetComponent<Inventory>();
         inv.AddItem(item);
+ 
+        transform.parent.gameObject.SetActive(false); 
 
-        Destroy(transform.parent.gameObject);
+        Invoke("Respawn",100f);
+    }
+
+    
+    private void Respawn(){
+            transform.parent.gameObject.SetActive(true);
     }
 }
