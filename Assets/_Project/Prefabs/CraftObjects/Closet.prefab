@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Closet
       objectReference: {fileID: 0}
+    - target: {fileID: 4056041529222314130, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056041529222314130, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056041529222314130, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: craftTableName
       value: Closet
@@ -24,17 +36,78 @@ PrefabInstance:
       propertyPath: stationCraftDuration
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[0]
+      value: "\u041D\u0435\u043F\u0440\u043E\u0446\u0435\u0436\u0435\u043D\u043D\u044B\u0439
+        \u043E\u0442\u0432\u0430\u0440 \u0438\u0437 \u043A\u043E\u0440\u043D\u0435\u0439
+        \u0430\u043B\u0442\u0435\u044F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[1]
+      value: "\u041D\u0435\u043F\u0440\u043E\u0446\u0435\u0436\u0435\u043D\u043D\u044B\u0439
+        \u043E\u0442\u0432\u0430\u0440 \u0438\u0437 \u043B\u0438\u0441\u0442\u044C\u0435\u0432
+        \u0432\u0430\u0445\u0442\u044B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[2]
+      value: "\u041D\u0435\u043F\u0440\u043E\u0446\u0435\u0436\u0435\u043D\u043D\u044B\u0439
+        \u043E\u0442\u0432\u0430\u0440 \u0438\u0437 \u043A\u043E\u0440\u043D\u0435\u0439
+        \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e0efd7fedf993d141bb162dc8afe8a85, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 09d20ae728e1d3d4289351e5bbf526b5, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: a48116c917509db4aa2050547ff69f3f, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[0]
+      value: "\u041A\u043E\u0440\u043D\u0438 \u0430\u043B\u0442\u0435\u044F \u0432
+        \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[1]
+      value: "\u041B\u0438\u0441\u0442\u044C\u044F \u0432\u0430\u0445\u0442\u044B
+        \u0432 \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[2]
+      value: "\u041A\u043E\u0440\u043D\u0438 \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B
+        \u0432 \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
     - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
-      propertyPath: m_Color.b
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: m_Color.g
-      value: 0.061761554
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: m_Color.r
-      value: 0.7169812
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7166271517048602572, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,6 +12,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantainLeaf
       objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207968604528478162, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407852235374040249, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3407852235374040249, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: itemName
       value: "\u041B\u0438\u0441\u0442\u044C\u044F \u043F\u043E\u0434\u043E\u0440\u043E\u0436\u043D\u0438\u043A\u0430"
@@ -19,22 +51,26 @@ PrefabInstance:
     - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: itemSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0d352d49857e2ed4d9cf8155f70e5366, type: 3}
+      objectReference: {fileID: 21300000, guid: b9d9cadfd580bdd4ab8c3946d2f2e2dc, type: 3}
     - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: canUseInCraft
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a81732dcab21d39428677a1efcf436af, type: 3}
+    - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_Color.b
-      value: 0.4251958
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_Color.g
-      value: 0.990566
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_Color.r
-      value: 0.4354385
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8628544823373054092, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_LocalPosition.x
