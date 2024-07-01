@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     public bool freeze = false;
     public MusicPlayer audioSource;
 
+    public Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +31,15 @@ public class Movement : MonoBehaviour
         if (x == 1)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        if (x == 0 && y == 0)
+        {
+            animator.SetTrigger("Stay");
+        }
+        else
+        {
+            animator.SetTrigger("Walk");
         }
 
         rb.velocity = new Vector2(speed * x,speed * y);
