@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Teapot
       objectReference: {fileID: 0}
+    - target: {fileID: 4056041529222314130, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: craftTableName
       value: Teapot
@@ -19,6 +23,64 @@ PrefabInstance:
     - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: playerCraftDuration
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[0]
+      value: "\u041A\u043E\u0440\u043D\u0438 \u0430\u043B\u0442\u0435\u044F \u0432
+        \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[1]
+      value: "\u041B\u0438\u0441\u0442\u044C\u044F \u0432\u0430\u0445\u0442\u044B
+        \u0432 \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsNames.Array.data[2]
+      value: "\u041A\u043E\u0440\u043D\u0438 \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B
+        \u0432 \u043A\u0438\u043F\u044F\u0442\u043A\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d8fc212ddb946054f974f9cd22dc4fc2, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9b79b3cf9330410408f099d20fb7dcd3, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftOutputsSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: cf1565b2dbb10174ab47884ae7952980, type: 3}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[0]
+      value: "\u0412\u044B\u0441\u0443\u0448\u0435\u043D\u043D\u044B\u0435 \u043A\u043E\u0440\u043D\u0438
+        \u0430\u043B\u0442\u0435\u044F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[1]
+      value: "\u0427\u0438\u0441\u0442\u044B\u0435 \u043B\u0438\u0441\u0442\u044C\u044F
+        \u0432\u0430\u0445\u0442\u044B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361704856602159210, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: craftIngridientsNames.Array.data[2]
+      value: "\u0412\u044B\u0441\u0443\u0448\u0435\u043D\u043D\u044B\u0435 \u043A\u043E\u0440\u043D\u0438
+        \u0432\u0430\u043B\u0435\u0440\u0438\u0430\u043D\u044B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4755780114350986331, guid: 62ed0fba6452b984c9c5a66ab12aa61e, type: 3}
       propertyPath: m_Color.b
