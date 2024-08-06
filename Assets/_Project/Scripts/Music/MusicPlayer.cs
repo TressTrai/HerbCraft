@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public AudioSource audioSource;
-    private bool stopped;
+    public AudioSource[] audioSource;
 
 
-    public void PlayMusic()
+    public void PlayMusic(int index)
     {
-        audioSource.Play();
-        stopped = false;
+        audioSource[index].Play();
     }
 
-    public void PauseMusic()
+    public void PauseMusic(int index)
     {
-        audioSource.Pause();
+        audioSource[index].Pause();
     }
 
-    public void StopMusic()
+    public void UnPauseMusic(int index)
     {
-        audioSource.Stop();
-        stopped = true;
+        audioSource[index].UnPause();
     }
 
-    public bool GetStopped()
+    public void StopMusic(int index)
     {
-        return stopped;
+        audioSource[index].Stop();
     }
 
-
+    public float Time(int index)
+    {
+        return audioSource[index].time;
+    }
 }

@@ -12,10 +12,13 @@ public class Movement : MonoBehaviour
 
     public Animator animator;
 
+    private MusicPlayer musicPlayer;
+    public int walkSound=3;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        //audioSource.PlayMusic();
+        musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
     }
 
     void FixedUpdate()
@@ -36,13 +39,16 @@ public class Movement : MonoBehaviour
         if (x == 0 && y == 0)
         {
             animator.SetTrigger("Stay");
+            musicPlayer.PauseMusic(walkSound);
         }
         else
         {
             animator.SetTrigger("Walk");
+            musicPlayer.UnPauseMusic(walkSound);
         }
 
         rb.velocity = new Vector2(speed * x,speed * y);
+
     }
 
     public bool GetFreeze()

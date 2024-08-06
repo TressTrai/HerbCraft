@@ -11,10 +11,13 @@ public class PlayerAttack : MonoBehaviour
     public Animator animator;
 
     private bool attacking = false;
+
+    private MusicPlayer musicPlayer;
     // Start is called before the first frame update
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
+        musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
     }
 
     // Update is called once per frame
@@ -42,5 +45,6 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;
         attackArea.SetActive(attacking);
         animator.SetTrigger("Attack");
+        musicPlayer.PlayMusic(6);
     }
 }

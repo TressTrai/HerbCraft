@@ -8,7 +8,7 @@ public class Quit : Button
 
     void Start()
     {
-        audioSource.PlayMusic();
+        //audioSource.PlayMusic();
     }
 
     // Update is called once per frame

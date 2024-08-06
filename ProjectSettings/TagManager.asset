@@ -7,6 +7,9 @@ TagManager:
   - PlayerBody
   - Inventory
   - HelthBar
+  - Money
+  - TaskAvailable
+  - MusicPlayer
   layers:
   - Default
   - TransparentFX
