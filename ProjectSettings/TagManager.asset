@@ -10,6 +10,7 @@ TagManager:
   - Money
   - TaskAvailable
   - MusicPlayer
+  - Stick
   layers:
   - Default
   - TransparentFX
