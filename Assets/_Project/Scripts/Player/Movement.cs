@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             musicPlayer.UnPauseMusic(walkSound);
         }
 
-        rb.velocity = new Vector2(speed * x,speed * y);
+        rb.velocity = new Vector2(x,y).normalized * speed;
 
     }
 

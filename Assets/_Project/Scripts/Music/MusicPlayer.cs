@@ -6,7 +6,6 @@ public class MusicPlayer : MonoBehaviour
 {
     public AudioSource[] audioSource;
 
-
     public void PlayMusic(int index)
     {
         audioSource[index].Play();

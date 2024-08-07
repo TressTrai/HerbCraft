@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //Основные характеристики противника
     public float speed;
     public float step;
     public int angerDistance;
@@ -12,24 +13,39 @@ public class Enemy : MonoBehaviour
 
     private float hp;
 
+
+    //Зона передвижения противника
     public GameObject field;
     private Transform fieldPoint;
     private Field fieldScript;
 
+    //Переменные для случайного блуждания противника
     private float ranX = 1f;
     private float ranY = 1f;
     private Vector2 ranVec ;
 
+
+    //Взаимодействие с игроком
     private Transform player;
 
     private HelthBar helthBar;
 
     private float timer = 0f;
 
+
+    //Состояния противника
     private bool chill = true;
     private bool angry = true;
     private bool goBack = true;
     private bool doDamage = false;
+
+    //Моргание
+    private SpriteRenderer spriteRend;
+    private Color blink = new Color(240f / 255f, 189f / 255f, 201f / 255f);
+
+    //Взрыв
+    public GameObject explotion;
+
 
     private void Start()
     {
@@ -37,6 +53,7 @@ public class Enemy : MonoBehaviour
         fieldScript = field.GetComponent<Field>();
         player = GameObject.FindGameObjectWithTag("PlayerBody").transform;
         helthBar = GameObject.FindGameObjectWithTag("HelthBar").GetComponent<HelthBar>();
+        spriteRend = GetComponent<SpriteRenderer>();
         hp = maxhp;
         RandomeStep();
     }
@@ -182,10 +199,20 @@ public class Enemy : MonoBehaviour
     public void SubHp(float dmg)
     {
         hp -= dmg;
+        spriteRend.material.color = blink;
         if(hp<= 0)
         {
             Death();
         }
+        else
+        {
+            Invoke("ResetMaterial",.2f);
+        }
+    }
+
+    private void ResetMaterial()
+    {
+        spriteRend.material.color = Color.white;
     }
 
     private void PlusHp()
@@ -199,6 +226,8 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         gameObject.SetActive(false);
+        explotion.transform.position = gameObject.transform.position;
+        explotion.SetActive(true);
 
         Invoke("Respawn",5f);
     }
@@ -207,6 +236,7 @@ public class Enemy : MonoBehaviour
     {
         hp = maxhp;
         gameObject.SetActive(true);
+        explotion.SetActive(false);
         gameObject.transform.position = fieldPoint.position;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }

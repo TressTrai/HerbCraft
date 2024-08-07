@@ -14,6 +14,10 @@ public class HelthBar : MonoBehaviour
     private Player money;
     private TextMeshProUGUI textMesh;
 
+    private SpriteRenderer spriteRendPlayer;
+    private SpriteRenderer spriteRendStick;
+    private Color blink = new Color(240f / 255f, 189f / 255f, 201f / 255f);
+
     private void Start()
     {
         healthBar = GetComponent<Image>();
@@ -22,6 +26,8 @@ public class HelthBar : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<Inventory>() ;
         Hp = maxHealth;
         textMesh = GameObject.FindGameObjectWithTag("Money").GetComponent<TextMeshProUGUI>();
+        spriteRendPlayer = GameObject.FindGameObjectWithTag("PlayerBody").GetComponent<SpriteRenderer>();
+        spriteRendStick = GameObject.FindGameObjectWithTag("Stick").GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -42,15 +48,28 @@ public class HelthBar : MonoBehaviour
     public void SubHp(int damageAmount)
     {
         ChangeHp(GetHp() - damageAmount);
+        spriteRendPlayer.material.color = blink;
+        spriteRendStick.material.color = blink;
         if (Hp <= 0)
         {
             Respawn();
         }
+        else
+        {
+            Invoke("ResetMaterialPlayer", .2f);
+        }
+    }
+
+    private void ResetMaterialPlayer()
+    {
+        spriteRendPlayer.material.color = Color.white;
+        spriteRendStick.material.color = Color.white;
     }
 
     private void Respawn()
     {
         Hp = maxHealth;
+        ResetMaterialPlayer();
         player.transform.position = new Vector3(0.08f, 2.08f, 0);
         inventory.ClearInventory();
         money.currentMoney = new Money(0);
