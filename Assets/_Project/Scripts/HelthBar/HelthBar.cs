@@ -16,7 +16,14 @@ public class HelthBar : MonoBehaviour
 
     private SpriteRenderer spriteRendPlayer;
     private SpriteRenderer spriteRendStick;
+
+    //Моргание и взрыв
     private Color blink = new Color(240f / 255f, 189f / 255f, 201f / 255f);
+    private Color blinkHeal = new Color(204f / 255f, 240f / 255f, 153f / 255f);
+    public GameObject explotion;
+
+    //Сопротивление урону
+    private bool damageResist;
 
     private void Start()
     {
@@ -47,23 +54,54 @@ public class HelthBar : MonoBehaviour
 
     public void SubHp(int damageAmount)
     {
-        ChangeHp(GetHp() - damageAmount);
-        spriteRendPlayer.material.color = blink;
-        spriteRendStick.material.color = blink;
-        if (Hp <= 0)
+        if (!damageResist)
         {
-            Respawn();
+            ChangeHp(GetHp() - damageAmount);
+            damageResist = true;
+            spriteRendPlayer.material.color = blink;
+            spriteRendStick.material.color = blink;
+            if (Hp <= 0)
+            {
+                Respawn();
+            }
+            else
+            {
+                Invoke("ResetMaterialPlayer", .2f);
+            }
+
+            Invoke("DropResist", .2f);
+        }
+    }
+
+    private void DropResist()
+    {
+        damageResist = false;
+    }
+
+    public void AddHp(int healAmount)
+    {
+        if(GetHp() + healAmount > maxHealth)
+        {
+            ChangeHp(maxHealth);
         }
         else
         {
-            Invoke("ResetMaterialPlayer", .2f);
+            ChangeHp(GetHp() + healAmount);
         }
+        spriteRendPlayer.material.color = blinkHeal;
+        spriteRendStick.material.color = blinkHeal;
+
+        explotion.transform.position = player.transform.position;
+        explotion.SetActive(true);
+
+        Invoke("ResetMaterialPlayer", .2f);
     }
 
     private void ResetMaterialPlayer()
     {
         spriteRendPlayer.material.color = Color.white;
         spriteRendStick.material.color = Color.white;
+        explotion.SetActive(false);
     }
 
     private void Respawn()
