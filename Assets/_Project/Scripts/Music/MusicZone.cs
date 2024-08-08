@@ -38,7 +38,7 @@ public class MusicZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerBody"))
+        if (collision.CompareTag("PlayerBody") && musicPlayer != null)
         {
             musicPlayer.PauseMusic(changeTo);
             musicPlayer.UnPauseMusic(changedMusic);

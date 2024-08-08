@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
 
     private float hp;
 
+    //Сопротивление урону
+    private bool damageResist;
+
 
     //Зона передвижения противника
     public GameObject field;
@@ -198,16 +201,24 @@ public class Enemy : MonoBehaviour
 
     public void SubHp(float dmg)
     {
-        hp -= dmg;
-        spriteRend.material.color = blink;
-        if(hp<= 0)
+        if (!damageResist)
         {
-            Death();
+            hp -= dmg;
+            damageResist = true;
+            spriteRend.material.color = blink;
+            if (hp <= 0)
+            {
+                Death();
+            }
+
+            Invoke("ResetMaterial", .2f);
+            Invoke("DropResist", .2f);
         }
-        else
-        {
-            Invoke("ResetMaterial",.2f);
-        }
+    }
+
+    private void DropResist()
+    {
+        damageResist = false;
     }
 
     private void ResetMaterial()

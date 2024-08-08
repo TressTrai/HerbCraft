@@ -11,6 +11,8 @@ TagManager:
   - TaskAvailable
   - MusicPlayer
   - Stick
+  - StickIndicator
+  - AttackArea
   layers:
   - Default
   - TransparentFX

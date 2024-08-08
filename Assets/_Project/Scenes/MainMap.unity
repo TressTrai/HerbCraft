@@ -3188,6 +3188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1624698204653591270, guid: 34189972fdf8c424dbb1bc32a2ac2aaa, type: 3}
+      propertyPath: explotion
+      value: 
+      objectReference: {fileID: 1651025885}
     - target: {fileID: 3722527192192316339, guid: 34189972fdf8c424dbb1bc32a2ac2aaa, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3196,6 +3200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HelthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 6513049350380214514, guid: 34189972fdf8c424dbb1bc32a2ac2aaa, type: 3}
+      propertyPath: explotion
+      value: 
+      objectReference: {fileID: 1651025885}
     - target: {fileID: 6880842191469325805, guid: 34189972fdf8c424dbb1bc32a2ac2aaa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3236,6 +3244,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8402875156149118138, guid: 34189972fdf8c424dbb1bc32a2ac2aaa, type: 3}
+      propertyPath: objectAttackArea
+      value: 
+      objectReference: {fileID: 2098867971}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5003,6 +5015,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 2091985512}
+    - target: {fileID: 6504816812994381902, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6736960285054135491, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5063,6 +5079,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.92
       objectReference: {fileID: 0}
+    - target: {fileID: 9143797425944062015, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
+      propertyPath: counter
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5071,6 +5091,11 @@ PrefabInstance:
       insertIndex: 3
       addedObject: {fileID: 193052597}
   m_SourcePrefab: {fileID: 100100000, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
+--- !u!1 &1651025885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2768956620910489415, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
+  m_PrefabInstance: {fileID: 1651025884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1690789576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5981,6 +6006,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c6d0d39d0db9c45b51a3f893551097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2098867971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6504816812994381902, guid: 6a5d6c425f5119f488c49aa0985a8ed1, type: 3}
+  m_PrefabInstance: {fileID: 1651025884}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
