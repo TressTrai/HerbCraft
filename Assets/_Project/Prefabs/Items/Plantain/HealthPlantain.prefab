@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &172679865736281752
+--- !u!1001 &2563694817330430990
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1323440719985222202, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_Name
-      value: Chest
+      value: Salve
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: itemName
+      value: "\u041C\u0430\u0437\u044C \u043E\u0442 \u0440\u0430\u043D  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: itemSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d352d49857e2ed4d9cf8155f70e5366, type: 3}
+    - target: {fileID: 4883082852875410428, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: canUseInCraft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4251958
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139223117404334875, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4354385
       objectReference: {fileID: 0}
     - target: {fileID: 8628544823373054092, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,27 +79,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3746049053712891277, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2598995264375545106}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
---- !u!1 &3574125995842339605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3746049053712891277, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}
-  m_PrefabInstance: {fileID: 172679865736281752}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2598995264375545106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3574125995842339605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12961c6ff7ca3c5408a4398fdb61dba6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellPrefab: {fileID: 0}
-  cellsAvailable: 0

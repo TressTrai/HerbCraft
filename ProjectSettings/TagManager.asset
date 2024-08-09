@@ -13,6 +13,7 @@ TagManager:
   - Stick
   - StickIndicator
   - AttackArea
+  - ChestGridPlane
   layers:
   - Default
   - TransparentFX

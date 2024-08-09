@@ -10,15 +10,17 @@ public class InteractiveObject : MonoBehaviour
     private Item item;
     private GameObject inventory;
     private PersonalTriggerZone triggerZone;
+    private MusicPlayer musicPlayer;
 
     private void Awake()
     {
         inventory = GameObject.FindGameObjectWithTag("Inventory");
         triggerZone = gameObject.GetComponent<PersonalTriggerZone>();
+        musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && triggerZone.PlayerDetection)
+        if (Input.GetKeyDown(KeyCode.E) && triggerZone.PlayerDetection && triggerZone.TriggeredName == "PlayerBody")
         {
             AddItemToInventory();
         }
@@ -31,7 +33,7 @@ public class InteractiveObject : MonoBehaviour
             return;
         }
 
-        
+        musicPlayer.PlayMusic(8);
         item = new Item(itemName, itemSprite, canUseInCraft);
         Inventory inv = inventory.GetComponent<Inventory>();
         bool itemAdded = inv.AddItem(item);

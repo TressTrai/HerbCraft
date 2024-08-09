@@ -72,6 +72,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int maxItemsAmount = 3;
     public GameObject inventoryCell;
 
+    private HelthBar healthBarScript;
+    private StickIndicator stickIndicatorScript;
+
     private Item[] items;
     private Image[] cellsObjects;
 
@@ -92,6 +95,9 @@ public class Inventory : MonoBehaviour
         items = new Item[maxItemsAmount];
         cellsObjects = new Image[maxItemsAmount];
 
+        healthBarScript = GameObject.FindGameObjectWithTag("HelthBar").GetComponent<HelthBar>();
+        stickIndicatorScript = GameObject.FindGameObjectWithTag("StickIndicator").GetComponent<StickIndicator>();
+
         int width = maxItemsAmount * cellWidth + (maxItemsAmount + 2) * padding;
         int height = cellWidth + 2 * padding;
         gameObject.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
@@ -100,6 +106,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < maxItemsAmount; i++)
         {
             GameObject cellObject = Instantiate(inventoryCell, new Vector3(0, 0, 0), Quaternion.identity, transform);
+            cellObject.GetComponent<InventoryCell>().index = i;
             print(cellObject.transform.GetChild(0).gameObject.GetComponent<Image>());
             cellsObjects[i] = cellObject.GetComponent<Image>();
         }
@@ -113,15 +120,36 @@ public class Inventory : MonoBehaviour
             if (Input.GetKeyDown(keyCode))
             {
                 SetChosenCell(i-48);
-                PaintChosenCell(i-48);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            InteractWithItem();
         }
     }
 
-    private void SetChosenCell(int cellId)
+    private void InteractWithItem()
+    {
+        if (!(chosenItem % 1 == 0)) return;
+
+        switch (items[chosenItem].Name)
+        {
+            case "Повязка из свежих листьев подорожника":
+                healthBarScript.AddHp(50);
+                RemoveItem(chosenItem);
+                break;
+            case "Крапива":
+                stickIndicatorScript.Add();
+                RemoveItem(chosenItem);
+                break;
+        }
+    }
+
+    public void SetChosenCell(int cellId)
     {
         if (cellId > cellsObjects.Length) return;
 
+        PaintChosenCell(cellId);
         chosenItem = cellId-1;
     }
 
