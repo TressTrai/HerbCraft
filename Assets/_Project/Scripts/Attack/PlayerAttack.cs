@@ -13,17 +13,19 @@ public class PlayerAttack : MonoBehaviour
     private bool attacking = false;
 
     private MusicPlayer musicPlayer;
-    // Start is called before the first frame update
+
+    private Movement movement;
+
     void Start()
     {
         attackArea = transform.GetChild(0).gameObject;
         musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
+        movement = GameObject.FindGameObjectWithTag("PlayerBody").GetComponent<Movement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !attacking) {
+        if (Input.GetMouseButtonDown(0) && !attacking && !movement.GetFreeze()) {
             Attack();
         }
 

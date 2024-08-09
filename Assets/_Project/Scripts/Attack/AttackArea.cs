@@ -12,6 +12,7 @@ public class AttackArea : MonoBehaviour
     //Сопротивление урону
     private bool damageResist;
 
+
     private void Start()
     {
         stickIndicator = GameObject.FindGameObjectWithTag("StickIndicator").GetComponent<StickIndicator>();

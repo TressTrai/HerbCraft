@@ -25,6 +25,9 @@ public class HelthBar : MonoBehaviour
     //Сопротивление урону
     private bool damageResist;
 
+    //Индикатор слома палки
+    private StickIndicator stickIndicator;
+
     private void Start()
     {
         healthBar = GetComponent<Image>();
@@ -35,6 +38,7 @@ public class HelthBar : MonoBehaviour
         textMesh = GameObject.FindGameObjectWithTag("Money").GetComponent<TextMeshProUGUI>();
         spriteRendPlayer = GameObject.FindGameObjectWithTag("PlayerBody").GetComponent<SpriteRenderer>();
         spriteRendStick = GameObject.FindGameObjectWithTag("Stick").GetComponent<SpriteRenderer>();
+        stickIndicator = GameObject.FindGameObjectWithTag("StickIndicator").GetComponent<StickIndicator>();
     }
 
     private void Update()
@@ -112,5 +116,6 @@ public class HelthBar : MonoBehaviour
         inventory.ClearInventory();
         money.currentMoney = new Money(0);
         textMesh.text = money.currentMoney.amount.ToString();
+        stickIndicator.Set(3);
     }
 }
