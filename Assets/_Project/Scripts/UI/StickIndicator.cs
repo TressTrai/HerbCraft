@@ -15,10 +15,14 @@ public class StickIndicator : MonoBehaviour
     public GameObject objectAttackArea;
     private AttackArea attackArea;
 
+    //Звуки
+    private MusicPlayer musicPlayer;
+
     private void Start()
     {
         image = gameObject.GetComponent<Image>();
         attackArea = objectAttackArea.GetComponent<AttackArea>();
+        musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
     }
 
     public void StatusCheck()
@@ -27,12 +31,15 @@ public class StickIndicator : MonoBehaviour
         {
             case 1:
                 image.color = bad;
+                attackArea.damage = 1;
                 break;
             case 2:
                 image.color = medium;
+                attackArea.damage = 3;
                 break;
             case 3:
                 image.color = good;
+                attackArea.damage = 5;
                 break;
         }
     }
@@ -42,7 +49,7 @@ public class StickIndicator : MonoBehaviour
         if (lvl != 1)
         {
             lvl -= 1;
-            attackArea.damage -= 2;
+            musicPlayer.PlayMusic(7);
         }
         StatusCheck();
     }
@@ -52,9 +59,14 @@ public class StickIndicator : MonoBehaviour
         if (lvl != 3)
         {
             lvl += 1;
-            attackArea.damage += 2;
             attackArea.counter = 6;
         }
+        StatusCheck();
+    }
+
+    public void Set(int setLvl)
+    {
+        lvl = setLvl;
         StatusCheck();
     }
 }
