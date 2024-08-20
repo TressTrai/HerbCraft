@@ -66,7 +66,10 @@ public class HelthBar : MonoBehaviour
             spriteRendStick.material.color = blink;
             if (Hp <= 0)
             {
-                Respawn();
+               Respawn(); //Данная строчка должна быть убрана из окончательного билда, для корректной работы игры!!!!!!!!!!!
+                #if !UNITY_EDITOR
+                                Yandex.PlayRewardedAdd();
+                #endif
             }
             else
             {
@@ -110,6 +113,10 @@ public class HelthBar : MonoBehaviour
 
     private void Respawn()
     {
+#if !UNITY_EDITOR
+        Yandex.SendToLeaderBord(money.currentMoney.amount);
+        Yandex.RateGamePopup();
+#endif
         Hp = maxHealth;
         ResetMaterialPlayer();
         player.transform.position = new Vector3(0.08f, 2.08f, 0);
@@ -117,5 +124,14 @@ public class HelthBar : MonoBehaviour
         money.currentMoney = new Money(0);
         textMesh.text = money.currentMoney.amount.ToString();
         stickIndicator.Set(3);
+    }
+
+    private void RespawnWithAward()
+    {
+        Hp = maxHealth;
+        ResetMaterialPlayer();
+        player.transform.position = new Vector3(0.08f, 2.08f, 0);
+        stickIndicator.Set(3);
+        spriteRendPlayer.material.color = Color.black;
     }
 }
