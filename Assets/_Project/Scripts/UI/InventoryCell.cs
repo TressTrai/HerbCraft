@@ -4,28 +4,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryCell : MonoBehaviour, IPointerClickHandler
+public class InventoryCell : MonoBehaviour, IPointerClickHandler, IDropHandler
 {
     public int index;
 
-    [SerializeField]
-    private Sprite sprite;
+    [SerializeField] private GameObject slotItemObject;
 
-    private Image image;
     private GameObject inventoryObject;
     private Inventory inventory;
 
 
     private void Awake()
     {
-        image = transform.GetChild(0).GetComponent<Image>();
         inventoryObject = GameObject.FindGameObjectWithTag("Inventory");
         inventory = inventoryObject.GetComponent<Inventory>();
-    }
-
-    private void Start()
-    {
-        image.sprite = sprite;
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -36,16 +28,29 @@ public class InventoryCell : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void ChangeSprite()
+    public void CreateItemIfSlotEmpty(Item item)
     {
-        image.sprite = null;
+        if (IsSlotHasChilds()) return;
+        GameObject createdSlotItem = Instantiate(slotItemObject, Vector3.zero, Quaternion.identity, transform);
+        createdSlotItem.transform.localPosition = Vector3.zero;
+        createdSlotItem.GetComponent<Image>().sprite = item.Sprite;
+        createdSlotItem.GetComponent<SlotItem>().item = item;
     }
-    public void ChangeSprite(Sprite newSprite)
+    public void DeleteSlotItem()
     {
-        image.sprite = newSprite;
+        if (transform.childCount == 0) return;
+        Destroy(transform.GetChild(0).gameObject);
     }
-    public void ChangeSprite(string newSpriteName)
+    public bool IsSlotHasChilds()
     {
-        image.sprite = Resources.Load<Sprite>(newSpriteName);
+        return transform.childCount > 0;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (IsSlotHasChilds()) return;
+        Transform otherItemTransform = eventData.pointerDrag.transform;
+        otherItemTransform.SetParent(transform);
+        otherItemTransform.localPosition = Vector3.zero;
     }
 }

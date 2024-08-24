@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class Craft
 {
@@ -107,7 +109,6 @@ public class Inventory : MonoBehaviour
         {
             GameObject cellObject = Instantiate(inventoryCell, new Vector3(0, 0, 0), Quaternion.identity, transform);
             cellObject.GetComponent<InventoryCell>().index = i;
-            print(cellObject.transform.GetChild(0).gameObject.GetComponent<Image>());
             cellsObjects[i] = cellObject.GetComponent<Image>();
         }
     }
@@ -128,11 +129,21 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private Item? GetItemFromCell(int id)
+    {
+        Transform cell = cellsObjects[id].transform;
+        if (cell.childCount == 0) return null;
+        return cell.GetChild(0).GetComponent<SlotItem>().item;
+    }
+
     private void InteractWithItem()
     {
         if (!(chosenItem % 1 == 0)) return;
 
-        switch (items[chosenItem].Name)
+        Item? item = GetItemFromCell(chosenItem);
+        if (item == null) return;
+
+        switch (item.Name)
         {
             case "ѕов€зка из свежих листьев подорожника":
                 healthBarScript.AddHp(50);
@@ -155,13 +166,18 @@ public class Inventory : MonoBehaviour
 
     public bool AddItem(Item newItem)
     {
-        print(newItem.Name);
+
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] == null)
+            var cell = cellsObjects[i].GetComponent<InventoryCell>();
+            if (!cell.IsSlotHasChilds())
             {
-                items[i] = newItem;
-                UpdateCells();
+                //items[i] = newItem;
+                //UpdateCells();
+                cell.CreateItemIfSlotEmpty(newItem);
+                SlotItem slotItem = (SlotItem)cellsObjects[i].transform
+                    .GetChild(0).gameObject.GetComponent(typeof(SlotItem));
+                slotItem.draggable = true;
                 return true;
             }
         }
@@ -178,75 +194,86 @@ public class Inventory : MonoBehaviour
         {
             items[i] = null;
             InventoryCell cell = (InventoryCell)cellsObjects[i].gameObject.GetComponent(typeof(InventoryCell));
-            cell.ChangeSprite();
+            cell.DeleteSlotItem();
         }
-        //UpdateCells();
     }
-    public bool RemoveItem(int itemId)
+    public void RemoveItem(int itemId)
     {
-        bool itemDeleted = false;
-
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (itemDeleted)
-            {
-                items[i - 1] = items[i];
-                if (i == items.Length-1) items[i] = null;
-                continue;
-            }
-            if (itemId == i)
-            {
-                items[i] = null;
-                itemDeleted = true;
-            }
-        }
-        UpdateCells();
-        return itemDeleted;
+        var cell = cellsObjects[itemId].GetComponent<InventoryCell>();
+        cell.DeleteSlotItem();
     }
-    private void UpdateCells()
-    {
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (cellsObjects[i] == null) break;
+    //public bool RemoveItem(int itemId)
+    //{
+    //    bool itemDeleted = false;
 
-            InventoryCell cell = (InventoryCell)cellsObjects[i].gameObject.GetComponent(typeof(InventoryCell));
-            if (items[i] != null)
-            {
-                cell.ChangeSprite(items[i].Sprite);
-            }
-            else
-            {
-                cell.ChangeSprite();
-            }
-        }
-    }
+    //    for (int i = 0; i < items.Length; i++)
+    //    {
+    //        if (itemDeleted)
+    //        {
+    //            items[i - 1] = items[i];
+    //            if (i == items.Length-1) items[i] = null;
+    //            continue;
+    //        }
+    //        if (itemId == i)
+    //        {
+    //            items[i] = null;
+    //            itemDeleted = true;
+    //        }
+    //    }
+    //    UpdateCells();
+    //    return itemDeleted;
+    //}
+    //private void UpdateCells()
+    //{
+    //    for (int i = 0; i < items.Length; i++)
+    //    {
+    //        if (cellsObjects[i] == null) continue;
+
+    //        InventoryCell cell = (InventoryCell)cellsObjects[i].gameObject.GetComponent(typeof(InventoryCell));
+
+    //        if (items[i] != null)
+    //        {
+    //            cell.CreateItemIfSlotEmpty(items[i]);
+    //            SlotItem slotItem = (SlotItem)cellsObjects[i].transform
+    //                .GetChild(0).gameObject.GetComponent(typeof(SlotItem));
+    //            slotItem.draggable = true;
+    //        }
+    //        else
+    //        {
+    //            cell.DeleteSlotItem();
+    //        }
+    //    }
+    //}
     private void PaintChosenCell(int cellId)
     {
         if (cellId > cellsObjects.Length) return;
 
         for (int i = 0; i < cellsObjects.Length; i++)
         {
-            if (cellId-1 == i)
+            if (cellId - 1 == i)
             {
-                if (cellsObjects[i].transform.GetChild(0).GetComponent<Image>().sprite == null)
-                {
-                    cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(0.95f, 0.5f, 0.5f, 255);
-                } 
-                else
-                {
-                    cellsObjects[i].GetComponent<Image>().color = new Color(0.95f, 0.5f, 0.5f, 255);
-                }
+                //if (cellsObjects[i].transform.GetChild(0).GetComponent<Image>().sprite == null)
+                //{
+                cellsObjects[i].color = new Color(0.95f, 0.5f, 0.5f, 255);
+                //}
+                //else
+                //{
+                //    cellsObjects[i].GetComponent<Image>().color = new Color(0.95f, 0.5f, 0.5f, 255);
+                //}
             }
             else
             {
-                cellsObjects[i].GetComponent<Image>().color = new Color(1f, 1f, 1f, 255);
-                cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1f, 1f, 1f, 255);
+                cellsObjects[i].color = new Color(1f, 1f, 1f, 255);
+                //cellsObjects[i].transform.GetChild(0).GetComponent<Image>().color = new Color(1f, 1f, 1f, 255);
             }
-                
+
         }
     }
-    public Item GetItemById(int id)
+    public Item? GetItemById(int id)
     {
-        return items[id];
+        var cell = cellsObjects[id].GetComponent<InventoryCell>();
+        if (!cell.IsSlotHasChilds()) return null;
+        var slotItem = cell.transform.GetChild(0).GetComponent<SlotItem>();
+        return slotItem.item;
     }
 }
