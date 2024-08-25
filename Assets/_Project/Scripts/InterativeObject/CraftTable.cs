@@ -83,6 +83,8 @@ public class CraftTable : MonoBehaviour
 
     private void StartCraft()
     {
+        triggerZone.SetIgnoreTrigger(true);
+
         if (playerCraftDuration != 0)
         {
             PlayerCraft();
@@ -90,6 +92,10 @@ public class CraftTable : MonoBehaviour
         else if (stationCraftDuration != 0)
         {
             StationCraft();
+        }
+        else
+        {
+            triggerZone.SetIgnoreTrigger(false);
         }
     }
 
@@ -105,6 +111,7 @@ public class CraftTable : MonoBehaviour
                 doneIcon.SetActive(true);
                 craftDone = true;
                 craftInProgress = false;
+                triggerZone.SetIgnoreTrigger(false);
             }
             else
             {
@@ -129,6 +136,7 @@ public class CraftTable : MonoBehaviour
             doneIcon.SetActive(true);
             craftDone = true;
             craftInProgress = false;
+            triggerZone.SetIgnoreTrigger(false);
         }
 
         if (stationCraftDuration != 0)
