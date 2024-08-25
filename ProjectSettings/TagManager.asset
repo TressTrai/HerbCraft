@@ -16,6 +16,8 @@ TagManager:
   - ChestGridPlane
   - Chest
   - OnDragObject
+  - ChestCellsGrid
+  - BinPlane
   layers:
   - Default
   - TransparentFX
