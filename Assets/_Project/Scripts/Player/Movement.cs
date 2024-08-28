@@ -26,17 +26,17 @@ public class Movement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        if(x== -1)
+        if(x== -1 && !freeze)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if (x == 1)
+        if (x == 1 && !freeze)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
-        if (x == 0 && y == 0)
+        if (x == 0 && y == 0 || freeze)
         {
             animator.SetTrigger("Stay");
             musicPlayer.PauseMusic(walkSound);
