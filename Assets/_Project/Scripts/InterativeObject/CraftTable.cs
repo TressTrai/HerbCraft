@@ -16,6 +16,7 @@ public class CraftTable : MonoBehaviour
     [SerializeField] private string craftTableName;
 
     public GameObject progressBarObject;
+    public Sprite trashSprite;
 
     private GameObject player;
     private GameObject inventory;
@@ -67,6 +68,11 @@ public class CraftTable : MonoBehaviour
         {
             print("chosen item");
             print(chosenItem.Name);
+            inv.RemoveItem(chosenItemId);
+            StartCraft();
+        }
+        else if (chosenItem != null && chosenItem.CanUseInCraft)
+        {
             inv.RemoveItem(chosenItemId);
             StartCraft();
         }
@@ -151,11 +157,12 @@ public class CraftTable : MonoBehaviour
     private void GiveCraftedItemToPlayer()
     {
         if (chosenItem == null) return;
+        bool itemAdded = false;
 
         Item craftedItem = GetCraftedItem();
         if (craftedItem.Name == null) return;
 
-        bool itemAdded = inv.AddItem(craftedItem);
+        itemAdded = inv.AddItem(craftedItem);
 
         if (!itemAdded) return;
 
@@ -166,11 +173,21 @@ public class CraftTable : MonoBehaviour
     private Item GetCraftedItem()
     {
         int indexOfCraftRecipe = Array.IndexOf(craftIngridientsNames, chosenItem.Name);
+        if (indexOfCraftRecipe == -1) return GetTrashItem();
+
         string outputCraftName = craftOutputsNames[indexOfCraftRecipe];
         Sprite outputCraftSprite = craftOutputsSprites[indexOfCraftRecipe];
         Item outputCraftItem = new Item(outputCraftName, outputCraftSprite, true);
 
         return outputCraftItem;
+    }
+
+    private Item GetTrashItem()
+    {
+        string outputTrashName = "мусор";
+        Item outputTrashItem = new Item(outputTrashName, trashSprite, false);
+
+        return outputTrashItem;
     }
 }
 

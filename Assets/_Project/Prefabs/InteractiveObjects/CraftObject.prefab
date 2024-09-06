@@ -185,6 +185,7 @@ MonoBehaviour:
   doneIcon: {fileID: 8154540399896353574}
   craftTableName: 
   progressBarObject: {fileID: 1705194925279374588}
+  trashSprite: {fileID: 21300000, guid: d70457613c4b5d343a161e7bd99368c7, type: 3}
 --- !u!4 &7166271517048602572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8628544823373054092, guid: b29f4c504ef95ca4ab3763bdd683ae2f, type: 3}

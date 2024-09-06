@@ -46,13 +46,16 @@ public class InteractiveObject : MonoBehaviour
  
         transform.parent.gameObject.SetActive(false); 
 
-        Invoke("Respawn",1f);
+        Invoke("Respawn",100f);
     }
 
     
     private void Respawn()
     {
         transform.parent.gameObject.SetActive(true);
-        gameObject.transform.position = fieldScript.GetRandomPoint();
+
+        Vector2 randomPoint = fieldScript.GetRandomPoint();
+        transform.parent.Find("E").position = new Vector2(randomPoint.x, randomPoint.y + 1.25f);
+        gameObject.transform.position = randomPoint;
     }
 }
