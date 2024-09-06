@@ -12,8 +12,13 @@ public class InteractiveObject : MonoBehaviour
     private PersonalTriggerZone triggerZone;
     private MusicPlayer musicPlayer;
 
+    private Field fieldScript;
+
+
     private void Awake()
     {
+        fieldScript = transform.parent.Find("Field").GetComponent<Field>();
+
         inventory = GameObject.FindGameObjectWithTag("Inventory");
         triggerZone = gameObject.GetComponent<PersonalTriggerZone>();
         musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
@@ -41,11 +46,13 @@ public class InteractiveObject : MonoBehaviour
  
         transform.parent.gameObject.SetActive(false); 
 
-        Invoke("Respawn",100f);
+        Invoke("Respawn",1f);
     }
 
     
-    private void Respawn(){
-            transform.parent.gameObject.SetActive(true);
+    private void Respawn()
+    {
+        transform.parent.gameObject.SetActive(true);
+        gameObject.transform.position = fieldScript.GetRandomPoint();
     }
 }

@@ -16,7 +16,7 @@ public class Field : MonoBehaviour
     {
         obj = GameObject.FindGameObjectWithTag("PlayerBody");
         objColl = obj.GetComponent<Collider2D>();
-        polygon = GetComponent<Collider2D>();
+        polygon = GetComponent<PolygonCollider2D>(); // changed from polygon = GetComponent<Collider2D>();
         bounds = polygon.bounds;
     }
 
