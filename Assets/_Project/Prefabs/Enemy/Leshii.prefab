@@ -79,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5355,7 +5355,11 @@ PrefabInstance:
     - target: {fileID: 6682740558517015951, guid: a54e1e24e77148f41a5fc132b2129aad, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 17e9367eb181f1945bdf647463fa28fa, type: 3}
+      objectReference: {fileID: 21300000, guid: 71341b99b50af6b48ac7526980645178, type: 3}
+    - target: {fileID: 6682740558517015951, guid: a54e1e24e77148f41a5fc132b2129aad, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8455468236663596048, guid: a54e1e24e77148f41a5fc132b2129aad, type: 3}
       propertyPath: m_Name
       value: Bullet
