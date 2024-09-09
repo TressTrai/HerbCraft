@@ -32,7 +32,7 @@ public class Poludennitsa : Enemy
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
         
-        if(canAttack && Vector2.Distance(transform.position, player.position) <= 3.5f)
+        if(canAttack && Vector2.Distance(transform.position, player.position) <= 2f)
         {
             Invoke("Attack", 0.5f);
             animator.SetTrigger("Attack");
@@ -49,6 +49,17 @@ public class Poludennitsa : Enemy
     private void AttackReload()
     {
         canAttack = true;
+    }
+
+    protected override void Respawn() // Воскрешение
+    {
+        hp = maxhp;
+        gameObject.SetActive(true);
+        attackArea.SetActive(false);
+
+        explotion.SetActive(false);
+        gameObject.transform.position = fieldPoint.position;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 }

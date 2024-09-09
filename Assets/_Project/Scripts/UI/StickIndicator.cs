@@ -59,8 +59,8 @@ public class StickIndicator : MonoBehaviour
         if (lvl != 3)
         {
             lvl += 1;
-            attackArea.counter = 6;
         }
+        attackArea.counter = 6;
         StatusCheck();
     }
 
