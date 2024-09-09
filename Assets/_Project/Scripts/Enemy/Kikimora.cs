@@ -64,7 +64,7 @@ public class Kikimora : Enemy
 
         if (canAttack && Vector2.Distance(transform.position, player.position) <= 3f)
         {
-            Invoke("AttackNear", 1f);
+            Invoke("AttackNear", 1.2f);
             animator.SetTrigger("Attack");
             canAttack = false;
             speed = 0;
@@ -75,7 +75,7 @@ public class Kikimora : Enemy
     private void AttackNear()
     {
         attackAreaNear.SetActive(true);
-        Invoke("AttackOut", attackAreaNear.GetComponent<AttackAreaEnemy>().liveTime + 0.5f);
+        Invoke("AttackOut", attackAreaNear.GetComponent<AttackAreaEnemy>().liveTime + 0.6f);
     }
 
     private void AttackOut()
@@ -89,5 +89,17 @@ public class Kikimora : Enemy
         canAttack = true;
         speed = 5;
         speedChill = 4;
+    }
+
+    protected override void Respawn() // Воскрешение
+    {
+        hp = maxhp;
+        gameObject.SetActive(true);
+        attackAreaNear.SetActive(false);
+        attackAreaOut.SetActive(false);
+
+        explotion.SetActive(false);
+        gameObject.transform.position = fieldPoint.position;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

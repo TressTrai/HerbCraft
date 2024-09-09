@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
 
     protected float hp;
 
-    private Player playerMoney;
-    private TextMeshProUGUI textMesh;
+    protected Player playerMoney;
+    protected TextMeshProUGUI textMesh;
 
     //Сопротивление урону
     protected bool damageResist;
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         fieldScript = field.GetComponent<Field>();
         player = GameObject.FindGameObjectWithTag("PlayerBody").transform;
         playerMoney = GameObject.FindGameObjectWithTag("PlayerBody").GetComponent<Player>();
-        spriteRend = GetComponent<SpriteRenderer>();
+        spriteRend = GetComponentInChildren<SpriteRenderer>();
         hp = maxhp;
         ranVec = new Vector2(fieldPoint.position.x, fieldPoint.position.y);
         textMesh = GameObject.FindGameObjectWithTag("Money").GetComponent<TextMeshProUGUI>();
@@ -179,7 +179,7 @@ public class Enemy : MonoBehaviour
         Invoke("Respawn",5f);
     }
 
-    protected void Respawn() // Воскрешение врага
+    protected virtual void Respawn() // Воскрешение врага
     {
         hp = maxhp;
         gameObject.SetActive(true);
