@@ -18,6 +18,7 @@ TagManager:
   - OnDragObject
   - ChestCellsGrid
   - BinPlane
+  - MobileMovement
   layers:
   - Default
   - TransparentFX

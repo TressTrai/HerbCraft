@@ -52,4 +52,9 @@ mergeInto(LibraryManager.library, {
     return ysdk.deviceInfo.type;
   },
 
+  GetLang: function () {
+    console.log(enviroment.i18n.lang);
+    return enviroment.i18n.lang;
+  },
+
 });

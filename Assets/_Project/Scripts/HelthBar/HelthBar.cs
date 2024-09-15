@@ -132,6 +132,5 @@ public class HelthBar : MonoBehaviour
         ResetMaterialPlayer();
         player.transform.position = new Vector3(0.08f, 2.08f, 0);
         stickIndicator.Set(3);
-        spriteRendPlayer.material.color = Color.black;
     }
 }

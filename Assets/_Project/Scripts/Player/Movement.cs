@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 10;
+    private float x;
+    private float y;
     private Rigidbody2D rb;
 
     public bool freeze = false;
@@ -15,23 +17,46 @@ public class Movement : MonoBehaviour
     private MusicPlayer musicPlayer;
     public int walkSound=3;
 
+    public Joystick joystick;
+    private bool onMobile = false; 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         musicPlayer = GameObject.FindGameObjectWithTag("MusicPlayer").GetComponent<MusicPlayer>();
+
+#if !UNITY_EDITOR
+        if (Yandex.DeviceInfo() == "mobile")
+        {
+            onMobile = true;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("MobileMovement").SetActive(false);
+        }
+#endif
+        GameObject.FindGameObjectWithTag("MobileMovement").SetActive(false); // При билде Удалить эту строку
     }
 
     void FixedUpdate()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        if (!onMobile)
+        {
+            x = Input.GetAxisRaw("Horizontal");
+            y = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            x = joystick.Horizontal;
+            y = joystick.Vertical;
+        }
 
-        if(x== -1 && !freeze)
+        if(x < 0 && !freeze)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if (x == 1 && !freeze)
+        if (x > 0 && !freeze)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
