@@ -20,6 +20,9 @@ public class Yandex : MonoBehaviour
     [DllImport("__Internal")]
     private static extern string GetDevice();
 
+    [DllImport("__Internal")]
+    private static extern string GetLang();
+
 
 
     static public void GetPlayerData()
@@ -45,5 +48,10 @@ public class Yandex : MonoBehaviour
     static public string DeviceInfo()
     {
         return GetDevice();
+    }
+
+    static public string LangInfo()
+    {
+        return GetLang();
     }
 }
